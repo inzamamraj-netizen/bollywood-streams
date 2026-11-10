@@ -21,7 +21,7 @@ if (!process.env.TMDB_API_KEY) {
   );
 }
 
-serveHTTP(addon, { port: PORT })
+serveHTTP(addon, { port: PORT, static: '/public' })
   .then(({ url }) => {
     console.log(`\n✔ Bollywood Streams addon is running.`);
     console.log(`  Add to Stremio ->  ${url}\n`);

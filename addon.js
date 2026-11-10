@@ -10,9 +10,11 @@ const CATALOG_IDS = Object.keys(tmdb.LISTS);
 
 const manifest = {
   id: 'community.bollywoodstreams',
-  version: '1.0.0',
+  version: '1.0.1',
   name: 'Bollywood Streams',
   description: 'Browse Hindi, Punjabi & South Indian dubbed movies (popular, top rated, new, by genre) and stream them via public torrents.',
+  logo: 'https://raw.githubusercontent.com/inzamamraj-netizen/bollywood-streams/main/logo.png',
+  background: 'https://images.metahub.space/background/medium/tt15354916/img',
   resources: ['catalog', 'stream'],
   types: ['movie'],
   idPrefixes: ['tt'],
