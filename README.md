@@ -1,43 +1,73 @@
-# Bollywood Streams — Stremio Addon
+# 🎬 Bollywood Streams — Stremio Addon
 
-Browse Hindi & Bollywood movies and stream them via public torrents.
+Browse and stream **Hindi (Bollywood)**, **Punjabi (Pollywood)**, and **South Indian (Telugu, Tamil, Malayalam, Kannada)** movies with **Dual Audio & Hindi Dubbed** support directly in Stremio.
 
-- **Catalogs** (The Movie DB API, filtered to Hindi originals): Popular, Top Rated, New Releases, genre rows, Hindi-only search
-- **Details**: served by Stremio's built-in Cinemeta (every catalog item is a real IMDb id)
-- **Streams**: Torrents-CSV + PirateBay mirror + YTS, searched in parallel per movie; camera rips kept but ranked last; dead (0-seed) torrents dropped; deduped by infoHash
+[![Stremio](https://img.shields.io/badge/stremio-addon%20v1.0-purple.svg)](https://stremio.com)
+[![Status](https://img.shields.io/badge/status-active%20%7C%2024%2F7-brightgreen.svg)]()
+[![Node](https://img.shields.io/badge/node-%3E%3D18-blue.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-green.svg)]()
 
-## Install
+---
 
-1. Get a free TMDB API key (2 minutes):
-   - Create/login at https://www.themoviedb.org
-   - Settings → API → Create → "Developer" → copy the **v3 API key**
-2. In this folder:
-   ```
-   npm install
-   TMDB_API_KEY=paste_your_key_here npm start
-   ```
-3. In Stremio (desktop/mobile/web): **Add-ons → Community** → paste in the search box:
-   ```
-   http://127.0.0.1:7001/manifest.json
-   ```
+## ⚡ 1-Click Install (Hosted 24/7 in Cloud)
 
-Runs on port **7001** by default (port 7000 is taken by macOS AirPlay Receiver). Override with `PORT=...`.
+You can install and use this addon immediately without running any local server:
 
-## Files
+- **Desktop / Mobile (1-Click)**:  
+  👉 **[Install in Stremio](stremio://bollywood-streams.onrender.com/manifest.json)**
+- **Stremio Web**:  
+  👉 **[Open in Stremio Web](https://web.stremio.com/#/addons?addon=https%3A%2F%2Fbollywood-streams.onrender.com%2Fmanifest.json)**
+- **Manual Installation**:  
+  In Stremio, go to **Addons (🧩)**, paste this URL into the search bar, and click **Install**:
+  ```text
+  https://bollywood-streams.onrender.com/manifest.json
+  ```
 
-| File | Role |
-|---|---|
-| `addon.js` | manifest + catalog/stream handlers |
-| `lib/tmdb.js` | TMDB discover/search + TMDB→IMDb id mapping |
-| `lib/cinemeta.js` | IMDb id → title/year (for torrent search) |
-| `lib/providers.js` | the three torrent sources |
-| `lib/match.js` | title matching, quality parsing, ranking, dedupe |
-| `lib/cache.js` | memory + disk TTL cache; stale values served on upstream failures |
+---
 
-## Notes & troubleshooting
+## 🌟 Features
 
-- Streams depend on **public seeders** — new films usually have several; very old or obscure ones may have none.
-- Catalog and stream results are cached in `cache/` (safe to delete to force refresh; restart first).
-- Upstream outages degrade gracefully: stale cached lists are served instead of blanks.
-- `npm test` — unit tests for the matching/ranking logic (node's built-in runner).
-- To relocate: any machine with Node ≥ 18; set `PORT` if 7001 is taken.
+- **6 Dedicated Indian Cinema Catalogs**:
+  - 🔥 **Popular Hindi / Bollywood**: All-time and modern blockbusters (*Jawan*, *Pathaan*, *Dangal*, *3 Idiots*, *Animal*, *Sholay*).
+  - 🆕 **New Hindi Releases**: Live real-time theatrical and OTT Hindi movie drops.
+  - ⭐ **Top Rated Hindi**: Masterpieces with IMDb 8.0+.
+  - 💥 **South Indian Hits (Hindi Dubbed / Multi Audio)**: Telugu, Tamil, Malayalam, and Kannada pan-India hits (*Pushpa*, *KGF*, *RRR*, *Kalki 2898 AD*, *Salaar*, *Kantara*, *Devara*, *Leo*).
+  - 🌾 **Popular Punjabi (Pollywood)**: Top Punjabi hits (*Carry On Jatta*, *Jatt & Juliet*, *Qismat*, *Chal Mera Putt*, *Sardaarji*).
+  - 🆕 **New Punjabi Releases**: Real-time newest Punjabi cinema releases.
+- **Audio & Dubbed Badges**:
+  - Automatically identifies and highlights:
+    - `🎧 Dual Audio` *(e.g. Hindi + Telugu, Hindi + Tamil)*
+    - `🎧 Hindi Dubbed` *(including clean OTT Hindi audio)*
+    - `🎧 Punjabi Audio`
+    - `🎧 Tamil Dubbed` / `Telugu Dubbed`
+- **Priority Ranking**:
+  - Dual Audio and Hindi Dubbed streams are automatically ranked at the top of the stream list.
+  - Quality sorting: 4K, 1080p, 720p, HDR, x265 with active seeder count.
+- **Universal Search**:
+  - Search any Indian title across Hindi, Punjabi, Tamil, Telugu, Malayalam, and Kannada directly in Stremio's search bar.
+
+---
+
+## 🛠️ Self-Hosting (Optional)
+
+If you prefer to run your own instance:
+
+```bash
+# Clone repository
+git clone https://github.com/inzamamraj-netizen/bollywood-streams.git
+cd bollywood-streams
+
+# Install dependencies
+npm install
+
+# Run (set your TMDB API key)
+TMDB_API_KEY=your_tmdb_key npm start
+```
+
+Or deploy to your own cloud host (Render, Railway, Koyeb, Docker) using the included `Dockerfile` and `render.yaml`.
+
+---
+
+## 📄 License
+
+MIT
