@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: bollywood-streams
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 7001
+      - key: TMDB_API_KEY
+        sync: false
