@@ -1,0 +1,16 @@
+{
+  "name": "bollywood-streams",
+  "version": "1.0.0",
+  "description": "Stremio addon: browse Hindi/Bollywood movies from TMDB and stream them via public torrents",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "stremio-addon-sdk": "^1.6.10"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
