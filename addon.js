@@ -15,6 +15,10 @@ const manifest = {
   description: 'Browse Hindi, Punjabi & South Indian dubbed movies (popular, top rated, new, by genre) and stream them via public torrents.',
   logo: 'https://raw.githubusercontent.com/inzamamraj-netizen/bollywood-streams/main/logo.png',
   background: 'https://images.metahub.space/background/medium/tt15354916/img',
+  stremioAddonsConfig: {
+    issuer: 'https://stremio-addons.net',
+    signature: 'eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..ZxXLUGtwCoT0x7yiKj9R2Q.trSjcxt5YhLmV9scTKqz4rh771lzn-DL_6HfprspRksyNQ_vAwuS00XrNcoIpKuRRzD7DWUTqoDQmRRzmr92xhBP9xoHcJ91tG9j0NsvymkqtdNCbnUkVC_Uv_tKuccV.9BWbEQZatHxkQmHgmssh1A'
+  },
   resources: ['catalog', 'stream'],
   types: ['movie'],
   idPrefixes: ['tt'],
